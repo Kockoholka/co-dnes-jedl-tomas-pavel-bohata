@@ -4,8 +4,8 @@
         "food": "Šunkofleky",
         "note": "Dneska je to fakt mrdka.",
         "rating": 6,
-        "icon": "🌯",
-        "tags": ["kebab", "fast-food"],
+        "icon": "🥘",
+        "tags": ["ceska-kuchyne", "testoviny", "maso"],
         "vegetables": false
     },
 
@@ -14,8 +14,8 @@
         "food": "Špagety",
         "note": "No mletý maso a červená omáčka nějaka. Klasik.",
         "rating": 7,
-        "icon": "🍗",
-        "tags": ["řízek", "smažené"],
+        "icon": "🍝",
+        "tags": ["testoviny", "mlete-maso"],
         "vegetables": false
     },
 
@@ -25,17 +25,17 @@
         "note": "Výskyt kebabu potvrzen.",
         "rating": 9,
         "icon": "🌯",
-        "tags": ["kebab", "fast-food"],
+        "tags": ["kebab", "fast-food", "maso"],
         "vegetables": true
     },
 
     {
-        "date": "2026-09-4",
+        "date": "2026-09-04",
         "food": "Halušky",
         "note": "Fialový pes GIF",
         "rating": 8,
-        "icon": "🍕",
-        "tags": ["pizza", "fast-food"],
+        "icon": "🥣",
+        "tags": ["halusky", "slovenska-kuchyne"],
         "vegetables": false
     }
 ]
