@@ -696,7 +696,7 @@ function displayHistory(meals) {
                 </h3>
 
                 <p>
-                    Archiv potřebuje více stravovacích incidentů.
+                    Archiv potřebuje více stravovacích záznamů.
                 </p>
 
             </div>
