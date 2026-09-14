@@ -3,11 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Co dnes jedl?</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Co dnes jedl?</h1>
-    <p>Web funguje 🎉</p>
+
+    <header>
+        <p class="eyebrow">DAILY FOOD INTELLIGENCE</p>
+        <h1>Co dnes jedl?</h1>
+        <p id="current-date" class="date"></p>
+    </header>
+
+
+    <main>
+
+        <section class="today-section">
+
+            <div class="section-title">
+                <div>
+                    <p class="small-label">DNEŠNÍ REPORT</p>
+                    <h2>Dnešní konzumace</h2>
+                </div>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    Monitoring aktivní
+                </div>
+            </div>
+
+
+            <div id="meal-list" class="meal-list">
+
+                <!-- Sem JavaScript automaticky vloží jídla -->
+
+            </div>
+
+        </section>
+
+
+        <section class="stats-section">
+
+            <p class="small-label">ANALYTICS</p>
+            <h2>Klíčové ukazatele</h2>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span class="stat-icon">🍽️</span>
+                    <p class="stat-value" id="today-count">0</p>
+                    <p class="stat-label">jídel dnes</p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">⭐</span>
+                    <p class="stat-value" id="average-rating">–</p>
+                    <p class="stat-label">průměrné hodnocení</p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-icon">📊</span>
+                    <p class="stat-value" id="total-count">0</p>
+                    <p class="stat-label">záznamů celkem</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            Food Intelligence System™
+            <span>•</span>
+            Data subject to continuous surveillance
+        </p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>
