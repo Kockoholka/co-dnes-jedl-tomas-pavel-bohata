@@ -1,20 +1,30 @@
 const mealList = document.getElementById("meal-list");
 
-const todayCount = document.getElementById("today-count");
-const averageRating = document.getElementById("average-rating");
+const kebabWeek = document.getElementById("kebab-week");
+const kebabMonth = document.getElementById("kebab-month");
+const vegetableDays = document.getElementById("vegetable-days");
 const totalCount = document.getElementById("total-count");
 
 const currentDate = document.getElementById("current-date");
 
 
-function getLocalDateString() {
-    const now = new Date();
+function getLocalDateString(date = new Date()) {
 
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, "0");
-    const day = String(now.getDate()).padStart(2, "0");
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
 
     return `${year}-${month}-${day}`;
+}
+
+
+function parseDate(dateString) {
+
+    const [year, month, day] = dateString
+        .split("-")
+        .map(Number);
+
+    return new Date(year, month - 1, day, 12, 0, 0);
 }
 
 
@@ -47,7 +57,7 @@ async function loadMeals() {
 
         const meals = await response.json();
 
-        displayMeals(meals);
+        displayToday(meals);
         displayStatistics(meals);
 
     }
@@ -58,28 +68,34 @@ async function loadMeals() {
 
         mealList.innerHTML = `
             <div class="empty">
-                Data se nepodařilo načíst.
+                <h3>Databáze obědů je momentálně nedostupná.</h3>
+                <p>Oddělení Food Intelligence bylo informováno.</p>
             </div>
         `;
     }
 }
 
 
-function displayMeals(meals) {
+function displayToday(meals) {
 
     const today = getLocalDateString();
 
-    const todaysMeals = meals.filter(meal =>
+    const todaysLunch = meals.find(meal =>
         meal.date === today
     );
 
 
-    if (todaysMeals.length === 0) {
+    if (!todaysLunch) {
 
         mealList.innerHTML = `
             <div class="empty">
-                <h3>Dnes zatím nic zaznamenáno.</h3>
-                <p>Situaci nadále monitorujeme.</p>
+
+                <h3>Tomíkův dnešní oběd zatím nebyl zaznamenán.</h3>
+
+                <p>
+                    Stravovací situaci nadále monitorujeme.
+                </p>
+
             </div>
         `;
 
@@ -87,78 +103,181 @@ function displayMeals(meals) {
     }
 
 
-    todaysMeals.sort((a, b) =>
-        a.time.localeCompare(b.time)
-    );
+    const rating =
+        typeof todaysLunch.rating === "number"
+            ? `<div class="meal-rating">⭐ ${todaysLunch.rating}/10</div>`
+            : "";
 
 
-    mealList.innerHTML = todaysMeals.map(meal => `
+    const note =
+        todaysLunch.note
+            ? `<p class="meal-note">${todaysLunch.note}</p>`
+            : "";
+
+
+    mealList.innerHTML = `
 
         <article class="meal-card">
 
             <div class="meal-icon">
-                ${meal.icon}
+                ${todaysLunch.icon || "🍽️"}
             </div>
 
             <div>
 
                 <p class="meal-time">
-                    ${meal.time} • ${meal.category}
+                    DNEŠNÍ OBĚD
                 </p>
 
                 <p class="meal-name">
-                    ${meal.food}
+                    ${todaysLunch.food}
                 </p>
 
-                <p class="meal-note">
-                    ${meal.note}
-                </p>
+                ${note}
 
             </div>
 
-            <div class="meal-rating">
-                ⭐ ${meal.rating}/10
-            </div>
+            ${rating}
 
         </article>
 
-    `).join("");
+    `;
 }
 
 
 function displayStatistics(meals) {
 
-    const today = getLocalDateString();
+    const now = new Date();
 
-    const todaysMeals = meals.filter(meal =>
-        meal.date === today
-    );
-
-
-    todayCount.textContent = todaysMeals.length;
-
-    totalCount.textContent = meals.length;
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth();
 
 
-    if (todaysMeals.length > 0) {
+    /* -------------------------
+       KEBABY TENTO MĚSÍC
+    ------------------------- */
 
-        const totalRating = todaysMeals.reduce(
-            (sum, meal) => sum + meal.rating,
-            0
+    const kebabsThisMonth = meals.filter(meal => {
+
+        const date = parseDate(meal.date);
+
+        return (
+            date.getFullYear() === currentYear &&
+            date.getMonth() === currentMonth &&
+            meal.tags?.includes("kebab")
         );
 
-        const average =
-            totalRating / todaysMeals.length;
+    }).length;
 
-        averageRating.textContent =
-            average.toFixed(1);
+
+    kebabMonth.textContent = kebabsThisMonth;
+
+
+
+    /* -------------------------
+       KEBABY TENTO TÝDEN
+    ------------------------- */
+
+    const monday = new Date(now);
+
+    const day = monday.getDay();
+
+    const distanceFromMonday =
+        day === 0 ? 6 : day - 1;
+
+    monday.setDate(
+        monday.getDate() - distanceFromMonday
+    );
+
+    monday.setHours(0, 0, 0, 0);
+
+
+    const sunday = new Date(monday);
+
+    sunday.setDate(
+        monday.getDate() + 6
+    );
+
+    sunday.setHours(23, 59, 59, 999);
+
+
+    const kebabsThisWeek = meals.filter(meal => {
+
+        const date = parseDate(meal.date);
+
+        return (
+            date >= monday &&
+            date <= sunday &&
+            meal.tags?.includes("kebab")
+        );
+
+    }).length;
+
+
+    kebabWeek.textContent = kebabsThisWeek;
+
+
+
+    /* -------------------------
+       POSLEDNÍ ZELENINA
+    ------------------------- */
+
+    const vegetableMeals = meals
+        .filter(meal =>
+            meal.vegetables === true &&
+            parseDate(meal.date) <= now
+        )
+        .sort(
+            (a, b) =>
+                parseDate(b.date) -
+                parseDate(a.date)
+        );
+
+
+    if (vegetableMeals.length === 0) {
+
+        vegetableDays.textContent = "∞";
 
     }
 
     else {
 
-        averageRating.textContent = "–";
+        const lastVegetable =
+            parseDate(vegetableMeals[0].date);
+
+
+        const todayUTC = Date.UTC(
+            now.getFullYear(),
+            now.getMonth(),
+            now.getDate()
+        );
+
+
+        const vegetableUTC = Date.UTC(
+            lastVegetable.getFullYear(),
+            lastVegetable.getMonth(),
+            lastVegetable.getDate()
+        );
+
+
+        const difference =
+            Math.floor(
+                (todayUTC - vegetableUTC) /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+        vegetableDays.textContent =
+            Math.max(0, difference);
     }
+
+
+
+    /* -------------------------
+       CELKOVÝ POČET OBĚDŮ
+    ------------------------- */
+
+    totalCount.textContent = meals.length;
 }
 
 
