@@ -1,0 +1,31 @@
+[
+    {
+        "date": "2026-09-14",
+        "time": "08:15",
+        "category": "Snídaně",
+        "food": "Croissant",
+        "note": "Start dne ve francouzském stylu.",
+        "rating": 7,
+        "icon": "🥐"
+    },
+
+    {
+        "date": "2026-09-14",
+        "time": "12:35",
+        "category": "Oběd",
+        "food": "Kebab",
+        "note": "Extra omáčka, zelenina přítomna v omezeném množství.",
+        "rating": 9,
+        "icon": "🌯"
+    },
+
+    {
+        "date": "2026-09-14",
+        "time": "19:20",
+        "category": "Večeře",
+        "food": "Pizza Prosciutto",
+        "note": "Konzumace celé pizzy potvrzena.",
+        "rating": 8,
+        "icon": "🍕"
+    }
+]
