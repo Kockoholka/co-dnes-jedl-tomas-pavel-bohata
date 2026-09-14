@@ -1,31 +1,41 @@
 [
     {
         "date": "2026-09-14",
-        "time": "08:15",
-        "category": "Snídaně",
-        "food": "Croissant",
-        "note": "Start dne ve francouzském stylu.",
-        "rating": 7,
-        "icon": "🥐"
-    },
-
-    {
-        "date": "2026-09-14",
-        "time": "12:35",
-        "category": "Oběd",
         "food": "Kebab",
-        "note": "Extra omáčka, zelenina přítomna v omezeném množství.",
+        "note": "Klasická nedělní výživa.",
         "rating": 9,
-        "icon": "🌯"
+        "icon": "🌯",
+        "tags": ["kebab", "fast-food"],
+        "vegetables": true
     },
 
     {
-        "date": "2026-09-14",
-        "time": "19:20",
-        "category": "Večeře",
-        "food": "Pizza Prosciutto",
-        "note": "Konzumace celé pizzy potvrzena.",
+        "date": "2026-09-13",
+        "food": "Smažený řízek s hranolkami",
+        "note": "Nutriční excelence.",
         "rating": 8,
-        "icon": "🍕"
+        "icon": "🍗",
+        "tags": ["řízek", "smažené"],
+        "vegetables": false
+    },
+
+    {
+        "date": "2026-09-12",
+        "food": "Kebab",
+        "note": "Opakovaný výskyt kebabu potvrzen.",
+        "rating": 9,
+        "icon": "🌯",
+        "tags": ["kebab", "fast-food"],
+        "vegetables": true
+    },
+
+    {
+        "date": "2026-09-11",
+        "food": "Pizza Prosciutto",
+        "note": "",
+        "rating": 8,
+        "icon": "🍕",
+        "tags": ["pizza", "fast-food"],
+        "vegetables": false
     }
 ]
