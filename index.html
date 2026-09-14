@@ -2,98 +2,292 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Co dnes Tomík jedl?</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
 
 <body>
 
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
     <header>
+
         <p class="eyebrow">
             STRAVOVACÍ NÁVYKY TOMÁŠE PAVLA BOHATY
         </p>
 
-        <h1>Co dnes Tomík jedl?</h1>
+        <h1>
+            Co dnes Tomík jedl?
+        </h1>
 
-        <p id="current-date" class="date"></p>
+        <p
+            id="current-date"
+            class="date"
+        ></p>
+
     </header>
 
 
     <main>
 
-        <!-- DNEŠNÍ OBĚD -->
+
+        <!-- =====================================
+             DNEŠNÍ OBĚD
+        ====================================== -->
+
         <section class="today-section">
 
             <div class="section-title">
 
                 <div>
-                    <p class="small-label">DNEŠNÍ REPORT</p>
-                    <h2>Dnešní oběd</h2>
+
+                    <p class="small-label">
+                        DNEŠNÍ REPORT
+                    </p>
+
+                    <h2>
+                        Dnešní oběd
+                    </h2>
+
                 </div>
 
+
                 <div class="status">
+
                     <span class="status-dot"></span>
+
                     Monitoring aktivní
+
                 </div>
 
             </div>
 
 
-            <div id="meal-list" class="meal-list">
-                <!-- JavaScript sem vloží dnešní oběd -->
+            <div
+                id="meal-list"
+                class="meal-list"
+            >
+                <!--
+                    Sem JavaScript automaticky
+                    vloží dnešní oběd.
+                -->
             </div>
 
         </section>
 
 
-        <!-- STATISTIKY -->
+
+        <!-- =====================================
+             STATISTIKY
+        ====================================== -->
+
         <section class="stats-section">
 
-            <p class="small-label">FOOD ANALYTICS</p>
-            <h2>Tomík v číslech</h2>
+            <p class="small-label">
+                FOOD ANALYTICS
+            </p>
+
+            <h2>
+                Tomík v číslech
+            </h2>
+
 
             <div class="stats-grid">
 
-                <div class="stat-card">
-                    <span class="stat-icon">🌯</span>
-                    <p class="stat-value" id="kebab-week">0</p>
-                    <p class="stat-label">kebabů tento týden</p>
-                </div>
 
                 <div class="stat-card">
-                    <span class="stat-icon">🌯</span>
-                    <p class="stat-value" id="kebab-month">0</p>
-                    <p class="stat-label">kebabů tento měsíc</p>
+
+                    <span class="stat-icon">
+                        🌯
+                    </span>
+
+                    <p
+                        class="stat-value"
+                        id="kebab-week"
+                    >
+                        0
+                    </p>
+
+                    <p class="stat-label">
+                        kebabů tento týden
+                    </p>
+
                 </div>
 
-                <div class="stat-card">
-                    <span class="stat-icon">🥦</span>
-                    <p class="stat-value" id="vegetable-days">–</p>
-                    <p class="stat-label">dní od poslední zeleniny</p>
-                </div>
+
 
                 <div class="stat-card">
-                    <span class="stat-icon">📊</span>
-                    <p class="stat-value" id="total-count">0</p>
-                    <p class="stat-label">obědů v databázi</p>
+
+                    <span class="stat-icon">
+                        🌯
+                    </span>
+
+                    <p
+                        class="stat-value"
+                        id="kebab-month"
+                    >
+                        0
+                    </p>
+
+                    <p class="stat-label">
+                        kebabů tento měsíc
+                    </p>
+
                 </div>
+
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        🥦
+                    </span>
+
+                    <p
+                        class="stat-value"
+                        id="vegetable-days"
+                    >
+                        –
+                    </p>
+
+                    <p class="stat-label">
+                        dní od poslední zeleniny
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        🍔
+                    </span>
+
+                    <p
+                        class="stat-value"
+                        id="fast-food-share"
+                    >
+                        –
+                    </p>
+
+                    <p class="stat-label">
+                        podíl fast foodu
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        ⭐
+                    </span>
+
+                    <p
+                        class="stat-value"
+                        id="average-rating"
+                    >
+                        –
+                    </p>
+
+                    <p class="stat-label">
+                        průměrné hodnocení
+                    </p>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <span class="stat-icon">
+                        📊
+                    </span>
+
+                    <p
+                        class="stat-value"
+                        id="total-count"
+                    >
+                        0
+                    </p>
+
+                    <p class="stat-label">
+                        obědů v databázi
+                    </p>
+
+                </div>
+
 
             </div>
 
         </section>
+
+
+
+        <!-- =====================================
+             HISTORIE
+        ====================================== -->
+
+        <section class="history-section">
+
+            <p class="small-label">
+                ARCHIV STRAVOVACÍCH INCIDENTŮ
+            </p>
+
+            <h2>
+                Historie obědů
+            </h2>
+
+
+            <p class="history-intro">
+                Historické záznamy jsou řazeny od nejnovějšího.
+                Kliknutím na oběd zobrazíš kompletní report.
+            </p>
+
+
+            <div
+                id="history-list"
+                class="history-list"
+            >
+                <!--
+                    Historii automaticky vytvoří
+                    JavaScript z data.json.
+                -->
+            </div>
+
+        </section>
+
 
     </main>
 
 
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
     <footer>
+
         <p>
             Tomáš Pavel Bohata Food Intelligence System™
             <span>•</span>
             Stravovací situace je nepřetržitě monitorována
         </p>
+
     </footer>
 
 
