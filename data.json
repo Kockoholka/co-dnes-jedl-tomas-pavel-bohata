@@ -1,28 +1,28 @@
 [
     {
         "date": "2026-09-14",
-        "food": "Kebab",
-        "note": "Klasická nedělní výživa.",
-        "rating": 9,
+        "food": "Šunkofleky",
+        "note": "Dneska je to fakt mrdka.",
+        "rating": 6,
         "icon": "🌯",
         "tags": ["kebab", "fast-food"],
-        "vegetables": true
+        "vegetables": false
     },
 
     {
-        "date": "2026-09-13",
-        "food": "Smažený řízek s hranolkami",
-        "note": "Nutriční excelence.",
-        "rating": 8,
+        "date": "2026-09-11",
+        "food": "Špagety",
+        "note": "No mletý maso a červená omáčka nějaka. Klasik.",
+        "rating": 7,
         "icon": "🍗",
         "tags": ["řízek", "smažené"],
         "vegetables": false
     },
 
     {
-        "date": "2026-09-12",
+        "date": "2026-09-10",
         "food": "Kebab",
-        "note": "Opakovaný výskyt kebabu potvrzen.",
+        "note": "Výskyt kebabu potvrzen.",
         "rating": 9,
         "icon": "🌯",
         "tags": ["kebab", "fast-food"],
@@ -30,9 +30,9 @@
     },
 
     {
-        "date": "2026-09-11",
-        "food": "Pizza Prosciutto",
-        "note": "",
+        "date": "2026-09-4",
+        "food": "Halušky",
+        "note": "Fialový pes GIF",
         "rating": 8,
         "icon": "🍕",
         "tags": ["pizza", "fast-food"],
