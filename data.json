@@ -3,7 +3,7 @@
         "date": "2026-09-15",
         "food": "Pečené kuře s těstovinami",
         "note": "Docela se těší dneska.",
-        "rating": ?,
+        "rating": 0,
         "icon": "🍗",
         "tags": ["testoviny", "maso"],
         "vegetables": false
