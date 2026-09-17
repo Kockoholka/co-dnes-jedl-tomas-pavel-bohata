@@ -1,4 +1,15 @@
 [
+
+    {
+        "date": "2026-09-17",
+        "food": "Kuře se sezamem a rýží",
+        "note": "V místní Asii.",
+        "rating": 6,
+        "icon": "🥘",
+        "tags": ["maso", "asie"],
+        "vegetables": false
+    },
+    
     {
         "date": "2026-09-15",
         "food": "Pečené kuře s těstovinami",
